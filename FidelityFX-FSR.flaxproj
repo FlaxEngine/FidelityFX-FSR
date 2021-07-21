@@ -1,0 +1,14 @@
+{
+	"Name": "FidelityFX-FSR",
+	"Version": "1.0",
+	"MinEngineVersion": "1.2",
+	"Company": "AMD",
+	"Copyright": "Copyright (c) 2021 Advanced Micro Devices, Inc. All rights reserved.",
+	"GameTarget": "FidelityFXFSRTarget",
+	"EditorTarget": "FidelityFXFSREditorTarget",
+	"References": [
+		{
+			"Name": "$(EnginePath)/Flax.flaxproj"
+		}
+	]
+}
