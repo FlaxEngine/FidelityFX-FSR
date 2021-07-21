@@ -16,12 +16,13 @@ Minimum supported Flax version: `1.2`.
 ```
 ...
 "References": [
-	{
-		"Name": "$(EnginePath)/Flax.flaxproj"
-	},
-	{
-		"Name": "$(ProjectPath)/Plugins/FidelityFX-FSR/FidelityFX-FSR.flaxproj"
-	}
+    {
+        "Name": "$(EnginePath)/Flax.flaxproj"
+    },
+    {
+        "Name": "$(ProjectPath)/Plugins/FidelityFX-FSR/FidelityFX-FSR.flaxproj"
+    }
+]
 ```
 
 3. Test it out!
