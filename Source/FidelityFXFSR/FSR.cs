@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using FlaxEngine;
 
 namespace FidelityFX
@@ -55,10 +54,6 @@ namespace FidelityFX
             base.OnCollectAssets(assets);
 
             assets.Add(ShaderId);
-
-            var path = Path.Combine(Globals.ProjectFolder, "Plugins/MyPlugin/Content/MyCustomDebugModel.flax");
-            Content.GetAssetInfo(path, out var info);
-            assets.Add(info.ID);
         }
 #endif
     }
