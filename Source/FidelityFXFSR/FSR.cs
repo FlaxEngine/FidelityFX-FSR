@@ -16,12 +16,25 @@ namespace FidelityFX
             Description = "AMD Fidelity FX Super Resolution 1.0 is a cutting edge super-optimize spatial upsampling technology that produces impressive image quality at fast framerates.",
             Author = "AMD",
             RepositoryUrl = "https://github.com/FlaxEngine/FidelityFX-FSR",
-            Version = new Version(1, 0),
+            Version = new Version(1, 0, 1),
         };
 
         internal static Guid ShaderId = FlaxEngine.Json.JsonSerializer.ParseID("0000012c0b87e7b00000004600000052");
 
         private FSRPostFx _postFx;
+
+        /// <summary>
+        /// Enables or disables the FSR upscaler.
+        /// </summary>
+        public bool Enabled
+        {
+            get => _postFx?.Enabled ?? false;
+            set
+            {
+                if (_postFx != null)
+                    _postFx.Enabled = value;
+            }
+        }
 
         /// <inheritdoc />
         public override void Initialize()

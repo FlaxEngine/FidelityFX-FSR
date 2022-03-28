@@ -24,7 +24,7 @@ namespace FidelityFX
         public override PostProcessEffectLocation Location => PostProcessEffectLocation.CustomUpscale;
 
         /// <inheritdoc />
-        public override bool CanRender => !Input.GetKey(KeyboardKeys.J) && _shader && _shader.IsLoaded && base.CanRender;
+        public override bool CanRender => _shader && _shader.IsLoaded && base.CanRender;
 
         /// <inheritdoc />
         public override unsafe void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)
@@ -61,8 +61,7 @@ namespace FidelityFX
             context.BindSR(0, input);
             context.BindUA(0, upscaled.View());
             context.Dispatch(_shader.GPU.GetCS("CS_Upscale"), (uint)(outputWidth + 15) / 16, (uint)(outputHeight + 15) / 16, 1);
-            context.BindUA(0, null);
-            context.FlushState();
+            context.ResetUA();
 
             // Sharpen pass
             if (cb != IntPtr.Zero)
@@ -76,8 +75,7 @@ namespace FidelityFX
             context.BindSR(0, upscaled);
             context.BindUA(0, sharpened.View());
             context.Dispatch(_shader.GPU.GetCS("CS_Sharpen"), (uint)(outputWidth + 15) / 16, (uint)(outputHeight + 15) / 16, 1);
-            context.BindUA(0, null);
-            context.FlushState();
+            context.ResetUA();
 
             // Copy pass
             context.SetViewportAndScissors(outputViewport);
