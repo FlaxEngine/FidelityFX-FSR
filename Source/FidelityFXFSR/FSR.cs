@@ -24,17 +24,9 @@ namespace FidelityFX
         private FSRPostFx _postFx;
 
         /// <summary>
-        /// Enables or disables the FSR upscaler.
+        /// Gets the FSR postfx.
         /// </summary>
-        public bool Enabled
-        {
-            get => _postFx?.Enabled ?? false;
-            set
-            {
-                if (_postFx != null)
-                    _postFx.Enabled = value;
-            }
-        }
+        public FSRPostFx PostFx => _postFx;
 
         /// <inheritdoc />
         public override void Initialize()
