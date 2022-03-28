@@ -37,7 +37,7 @@ namespace FidelityFX
             var outputSize = outputViewport.Size;
             var outputWidth = (int)outputViewport.Width;
             var outputHeight = (int)outputViewport.Height;
-            var desc = GPUTextureDescription.New2D(outputWidth, outputHeight, output.Format, GPUTextureFlags.ShaderResource | GPUTextureFlags.UnorderedAccess);
+            var desc = GPUTextureDescription.New2D(outputWidth, outputHeight, PixelFormat.R8G8B8A8_UNorm, GPUTextureFlags.ShaderResource | GPUTextureFlags.UnorderedAccess);
             var upscaled = RenderTargetPool.Get(ref desc);
             var sharpened = RenderTargetPool.Get(ref desc);
             var cb = _shader.GPU.GetCB(0);
