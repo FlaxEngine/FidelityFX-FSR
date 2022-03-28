@@ -30,6 +30,17 @@ Minimum supported Flax version: `1.2`.
 
 Finally open Flax Editor - FSR will be visible in Plugins window (under Rendering category). It implements `CustomUpscale` postFx to increase visual quality when using low-res rendering. To test it simply start the game and adjust the **Rendering Percentage** property in *Graphics Quality Window*. Use scale factors provided by AMD to achieve the best quality-performance ratio. 
 
+## API
+
+FSR is implemented as a `GamePlugin` and can be accessed as follows to configure effect:
+
+```cs
+var postFx = PluginManager.GetPlugin<FSR>().PostFx;
+postFx.Enabled = true; // Enable/disable effect
+postFx.Sharpness = 0.25f; // Values in range 0-2 (0=max sharpness)
+MainRenderTask.Instance.RenderingPercentage = 0.67f; // Follow AMD docs for scaling factors
+```
+
 ## License
 
 Both this plugin and FSR are released under **MIT License**.
