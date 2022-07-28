@@ -8,17 +8,6 @@ namespace FidelityFX
     /// </summary>
     public sealed class FSR : GamePlugin
     {
-        /// <inheritdoc />
-        public override PluginDescription Description => new PluginDescription
-        {
-            Name = "AMD FidelityFX Super Resolution 1.0",
-            Category = "Rendering",
-            Description = "AMD Fidelity FX Super Resolution 1.0 is a cutting edge super-optimize spatial upsampling technology that produces impressive image quality at fast framerates.",
-            Author = "AMD",
-            RepositoryUrl = "https://github.com/FlaxEngine/FidelityFX-FSR",
-            Version = new Version(1, 0, 1),
-        };
-
         internal static Guid ShaderId = FlaxEngine.Json.JsonSerializer.ParseID("0000012c0b87e7b00000004600000052");
 
         private FSRPostFx _postFx;
@@ -27,6 +16,20 @@ namespace FidelityFX
         /// Gets the FSR postfx.
         /// </summary>
         public FSRPostFx PostFx => _postFx;
+
+        /// <inheritdoc />
+        public FSR()
+        {
+            _description = new PluginDescription
+            {
+                Name = "AMD FidelityFX Super Resolution 1.0",
+                Category = "Rendering",
+                Description = "AMD Fidelity FX Super Resolution 1.0 is a cutting edge super-optimize spatial upsampling technology that produces impressive image quality at fast framerates.",
+                Author = "AMD",
+                RepositoryUrl = "https://github.com/FlaxEngine/FidelityFX-FSR",
+                Version = new Version(1, 0, 1),
+            };
+        }
 
         /// <inheritdoc />
         public override void Initialize()
@@ -54,11 +57,9 @@ namespace FidelityFX
 
 #if FLAX_EDITOR
         /// <inheritdoc />
-        public override void OnCollectAssets(System.Collections.Generic.List<Guid> assets)
+        public override Guid[] GetReferences()
         {
-            base.OnCollectAssets(assets);
-
-            assets.Add(ShaderId);
+            return new[] { ShaderId };
         }
 #endif
     }
