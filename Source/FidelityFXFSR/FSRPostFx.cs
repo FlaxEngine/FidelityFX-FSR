@@ -27,10 +27,16 @@ namespace FidelityFX
         public float Sharpness = 0.25f;
 
         /// <inheritdoc />
-        public override PostProcessEffectLocation Location => PostProcessEffectLocation.CustomUpscale;
+        public FSRPostFx()
+        {
+            Location = PostProcessEffectLocation.CustomUpscale;
+        }
 
         /// <inheritdoc />
-        public override bool CanRender => _shader && _shader.IsLoaded && base.CanRender;
+        public override bool CanRender()
+        {
+            return _shader && _shader.IsLoaded && base.CanRender();
+        }
 
         /// <inheritdoc />
         public override unsafe void Render(GPUContext context, ref RenderContext renderContext, GPUTexture input, GPUTexture output)

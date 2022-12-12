@@ -43,13 +43,13 @@ namespace FidelityFX
             }
 
             // TODO: apply global mip bias to texture groups samplers to increase texturing quality
-            SceneRenderTask.GlobalCustomPostFx.Add(_postFx = new FSRPostFx());
+            SceneRenderTask.AddGlobalCustomPostFx(_postFx = new FSRPostFx());
         }
 
         /// <inheritdoc />
         public override void Deinitialize()
         {
-            SceneRenderTask.GlobalCustomPostFx.Remove(_postFx);
+            SceneRenderTask.RemoveGlobalCustomPostFx(_postFx);
             FlaxEngine.Object.Destroy(ref _postFx);
 
             base.Deinitialize();
