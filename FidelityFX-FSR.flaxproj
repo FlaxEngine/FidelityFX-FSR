@@ -1,7 +1,7 @@
 {
 	"Name": "FidelityFX-FSR",
-	"Version": "1.0.1",
-	"MinEngineVersion": "1.2",
+	"Version": "1.0.2",
+	"MinEngineVersion": "1.5",
 	"Company": "AMD",
 	"Copyright": "Copyright (c) 2021 Advanced Micro Devices, Inc. All rights reserved.",
 	"GameTarget": "FidelityFXFSRTarget",

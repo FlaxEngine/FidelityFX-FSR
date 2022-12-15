@@ -10,6 +10,13 @@ Screenshots/
 *.csproj
 *.sln
 
+# Ignore Visual Code project files (generated locally)
+*.code-workspace
+*.vscode/
+
+# Ignore Rider project files (generated locally)
+*.idea
+
 # Ignore thumbnails created by Windows
 Thumbs.db
 
