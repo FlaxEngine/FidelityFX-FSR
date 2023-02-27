@@ -8,7 +8,7 @@ namespace FidelityFX
     /// </summary>
     public sealed class FSR : GamePlugin
     {
-        internal static Guid ShaderId = FlaxEngine.Json.JsonSerializer.ParseID("0000012c0b87e7b00000004600000052");
+        internal static Guid ShaderId = FlaxEngine.Json.JsonSerializer.ParseID("0a5d1c1c48cdb7e3167993b32032c4fc");
 
         private FSRPostFx _postFx;
 
