@@ -1,10 +1,14 @@
 # Ignore Flax project files
-Binaries/
-Cache/
-Logs/
-Output/
-Screenshots/
+/Binaries/
+/Cache/
+/Logs/
+/Output/
+/Screenshots/
 *.HotReload.*
+Source/*.Gen.*
+
+# Local files
+imgui.ini
 
 # Ignore Visual Studio project files (generated locally)
 *.csproj
@@ -15,7 +19,7 @@ Screenshots/
 *.vscode/
 
 # Ignore Rider project files (generated locally)
-*.idea
+*.idea/
 
 # Ignore thumbnails created by Windows
 Thumbs.db
@@ -39,11 +43,9 @@ Thumbs.db
 *.ilk
 *.log
 [Bb]in
-[Dd]ebug*/
 *.lib
 *.sbr
-obj/
-[Rr]elease*/
+/Source/obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 .vs/
