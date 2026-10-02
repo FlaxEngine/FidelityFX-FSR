@@ -10,6 +10,7 @@
 class GPUTexture;
 class GPUContext;
 
+// FSR upscaling integration.
 API_CLASS(Namespace="AMD") class FSR_API FSRUpscale : public ScriptingObject
 {
     DECLARE_SCRIPTING_TYPE(FSRUpscale);

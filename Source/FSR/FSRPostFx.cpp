@@ -1,5 +1,4 @@
 ﻿#include "FSRPostFx.h"
-
 #include "FSR.h"
 #include "Engine/Graphics/GPUContext.h"
 #include "Engine/Graphics/RenderTargetPool.h"

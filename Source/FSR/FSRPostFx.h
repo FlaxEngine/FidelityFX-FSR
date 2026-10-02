@@ -2,9 +2,10 @@
 
 #include "Engine/Graphics/PostProcessEffect.h"
 
+// FSR rendering effect.
 API_CLASS() class FSR_API FSRPostFx : public PostProcessEffect
 {
-DECLARE_SCRIPTING_TYPE(FSRPostFx);
+	DECLARE_SCRIPTING_TYPE(FSRPostFx);
 public:
     // [PostProcessEffect]
     bool CanRender(const RenderContext& renderContext) const override;

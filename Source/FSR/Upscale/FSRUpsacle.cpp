@@ -8,13 +8,11 @@
 #include "Engine/Graphics/RenderBuffers.h"
 #include "Engine/Graphics/RenderContext.h"
 #include "Engine/Graphics/Textures/GPUTexture.h"
-#include "Engine/Debug/DebugLog.h"
 #include "Engine/Scripting/Enums.h"
-
-#include "ffx_api.hpp"
-#include "ffx_api_types.h"
-#include "ffx_upscale.hpp"
-#include "dx12/ffx_api_dx12.hpp"
+#include <ffx_api.hpp>
+#include <ffx_api_types.h>
+#include <ffx_upscale.hpp>
+#include <dx12/ffx_api_dx12.hpp>
 
 FSRUpscale::FSRUpscale(const SpawnParams& params) 
     : ScriptingObject(params)
@@ -174,7 +172,7 @@ void FSRUpscale::SetQuality(FSRQuality quality)
     const auto task = MainRenderTask::Instance;
     if (!task) return;
      
-    DebugLog::Log(LogType::Info, String::Format(TEXT("[FSR] Selected ratio from quality mode: {}"), selectedRatio));
+    LOG(Info, "[FSR] Selected ratio from quality mode: {} ({} %)", selectedRatio, (int32)(100.0f / selectedRatio));
     task->RenderScale = 1.0f / selectedRatio;
     _quality = quality;
 }

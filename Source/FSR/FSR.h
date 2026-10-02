@@ -26,27 +26,27 @@ private:
 
 public:
     /// <summary>
-    /// FSR support information
+    /// Gets FSR support information.
     /// </summary>
     API_PROPERTY() FSRSupport GetSupport() const;
 
     /// <summary>
-    /// Get FSR plugin instance
+    /// Gets FSR plugin instance.
     /// </summary>
     API_PROPERTY() static FSR* GetInstance();
 
     /// <summary>
-    /// Get FSR upscale
+    /// Gets FSR upscale.
     /// </summary>
     API_PROPERTY() FSRUpscale* GetUpscale() const;
 
     /// <summary>
-    /// Apply FSR upscaler postfx and render scale
+    /// Apply FSR upscaler postfx and sets the initial quality (and render scale for the main view).
     /// </summary>
-    API_FUNCTION() void ApplyUpscaler();
+    API_FUNCTION() void ApplyUpscaler(FSRQuality quality = FSRQuality::Balanced);
 
     /// <summary>
-    /// Remove FSR upscaler postfx and set render scale back to 1
+    /// Remove FSR upscaler postfx and sets the render scale back to 1.
     /// </summary>
     API_FUNCTION() void RemoveUpscaler();
 
