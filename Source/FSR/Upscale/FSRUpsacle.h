@@ -82,6 +82,7 @@ public:
     API_FUNCTION() float GetUpscaleRatioFromQuality(FSRQuality quality);
 
 private:
+    void DestroyContext();
     void UpdateFSRContext(const Int2& upscaleSize);
     void FillUpscalerVersions();
     static void ffxDebugMessage(uint32_t type, const wchar_t* message);

@@ -57,9 +57,7 @@ void FSRUpscale::Shutdown()
 {
     if (!_ffxContext)
         return;
-    ffx::DestroyContext(_ffxContext);
-    _ffxContext = nullptr;
-    _contextSize = Int2::Zero;
+    DestroyContext();
     _upscalerVersions.Clear();
 }
 
@@ -198,7 +196,7 @@ float FSRUpscale::GetUpscaleRatioFromQuality(FSRQuality quality)
     return outRatio;
 }
 
-void FSRUpscale::UpdateFSRContext(const Int2& upscaleSize)
+void FSRUpscale::DestroyContext()
 {
     if (_ffxContext)
     {
@@ -207,6 +205,12 @@ void FSRUpscale::UpdateFSRContext(const Int2& upscaleSize)
         ffx::DestroyContext(_ffxContext);
         _ffxContext = nullptr;
     }
+    _contextSize = Int2::Zero;
+}
+
+void FSRUpscale::UpdateFSRContext(const Int2& upscaleSize)
+{
+    DestroyContext();
     _contextSize = upscaleSize;
     _contextReset = true;
 
